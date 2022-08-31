@@ -1,0 +1,12 @@
+
+
+Submission[submission_type] = online_url
+
+submission[url] = url
+Userid
+
+
+
+options = ["submission_type"]=online_url",
+	submission[url]=" + str(url),
+	submission[user_id]=" + str(userid)]

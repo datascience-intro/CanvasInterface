@@ -1,0 +1,31 @@
+{
+    "course" : 23503,
+    "API_URL" : "https://uppsala.instructure.com",
+    "API_KEY" : "PUT_KEY_HERE",
+    "Assignments" : [
+    {"name": "Assignment 1 (Intro Assignment)",
+     "studium_id" : 0,
+     "master_filename" : "Assignment_1_master_soln.ipynb",
+     "start_date" : "2020-09-01",
+     "end_date" : "2020-09-25"
+    },
+    {"name": "Assignment 2 (Statistics from data and randomness)",
+     "studium_id" : 0,
+     "master_filename" : "Assignment_2_master_soln.ipynb",
+     "start_date" : "2020-09-21",
+     "end_date" : "2020-10-09"
+    },
+    {"name": "Assignment 3 (Estimation and testing)",
+     "studium_id" : 0,
+     "master_filename" : "Assignment_3_master_soln.ipynb",
+     "start_date" : "2020-10-06",
+     "end_date" : "2020-10-23"
+    },
+    {"name": "Assignment 4",
+     "studium_id" : 0,
+     "master_filename" : "Assignment_3_master_soln.ipynb",
+     "start_date" : "2020-11-09",
+     "end_date" : "2020-11-27"
+    }
+    ]
+}
