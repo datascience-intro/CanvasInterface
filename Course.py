@@ -12,6 +12,25 @@ class Assignment:
         self.course = course
         self.attributes = assignment
 
+    def __str__(self):
+        assignment_id = self.attributes['id']
+        name = self.attributes['name']
+        due_at = self.attributes['due_at']
+        unlock_at = self.attributes['unlock_at']
+        printstr = '''Name: %s
+ID: %s
+Unlock: %s\t Due: %s''' % (name,assignment_id,unlock_at,due_at)
+        return printstr
+
+    def name(self):
+        return self.attributes['name']
+
+    def id(self):
+        return self.attributes['id']
+
+    def __repr__(self):
+        return str(self.attributes)
+
 class Course:
 
     def __init__(self, API_URL, API_KEY, COURSE_ID):
