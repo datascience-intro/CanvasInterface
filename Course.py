@@ -82,13 +82,17 @@ class Course:
         Also, note that in Studium the graded quizzes are also assignments, but we dont want these.
         '''
 
-        req_str = self.base_req_str + "/assignments?access_token=" + self.API_KEY
+        req_str = self.base_req_str + "/assignments?per_page=20&access_token=" + self.API_KEY
         response = requests.get(req_str).json()
+
+        
 
         for assignment in response:
             if ("quiz_id" not in assignment):
                 self.assignments.append(Assignment(self,dict(assignment)))
                 # See https://canvas.instructure.com/doc/api/assignments.html
+
+
 
     def getAssignmentSubmissions(self,assignment_id):
         '''
@@ -99,8 +103,15 @@ class Course:
 
         name = response['name'].replace(' ','_')
         print("Fetching assignment %s" % name)
-        req_str_ass = self.base_req_str + "/assignments/" + str(assignment_id) + "/submissions?per_page=1000&access_token=" + self.API_KEY
-        submissions = requests.get(req_str_ass).json()
+        req_str_ass = self.base_req_str + "/assignments/" + str(assignment_id) + "/submissions?per_page=50&access_token=" + self.API_KEY
+        response_2 = requests.get(req_str_ass)
+        submissions = response_2.json()
+
+        # Here we have to check if there is a link to next page
+        while 'next' in response_2.links:
+            response_2 = requests.get(response_2.links['next']['url']+"&access_token=" + self.API_KEY)
+            submissions.extend(response_2.json())
+
         print("Assignments Fetched!")
 
         return submissions
